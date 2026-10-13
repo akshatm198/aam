@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A handcrafted romantic surprise website for Archita with love from Akshat.">
+  <title>Happy Birthday Archita — A Surprise For You ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="loading-state">
+
+  <!-- Ambient Glow & Particle Canvases -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow glow-3" aria-hidden="true"></div>
+  <canvas id="tree-canvas" class="background-canvas" aria-hidden="true"></canvas>
+
+  <!-- Global Audio Control Dock -->
+  <aside class="global-audio-bar" aria-label="Audio Controls">
+    <button id="toggle-fx-sound" class="btn-icon" aria-label="Toggle Sound Effects" title="Toggle Sound Effects">
+      <span class="icon-sound-on">🔔</span>
+      <span class="icon-sound-off hidden">🔕</span>
+    </button>
+  </aside>
+
+  <!-- Section 1: Welcome Curtain Screen -->
+  <section id="welcome-screen" class="welcome-screen" aria-label="Welcome Presentation" role="dialog" aria-modal="true">
+    <div class="welcome-card glass-panel">
+      <div class="heart-pulse-icon" aria-hidden="true">💖</div>
+      <p class="welcome-eyebrow">A Handcrafted Digital Sanctuary for Archita</p>
+      <h1 class="welcome-title">Your Memories, My Words, My Voice — A Little Surprise Made Just for You ❤️</h1>
+      <p class="welcome-subtitle">Every line of code and falling petal was created to celebrate the quiet wonder you bring into my life.</p>
+      <button id="btn-enter" class="btn-primary" aria-label="Enter Website Experience">
+        <span>Enter Our World</span>
+        <svg class="heart-svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Scrollable Application Frame -->
+  <div id="main-content" class="main-wrapper content-concealed">
+    
+    <!-- Experience Hero Header -->
+    <header class="app-header">
+      <span class="sub-tagline">To My Most Precious One</span>
+      <h2 class="main-artistic-heading" id="recipient-heading-name">For Archita, Always</h2>
+      <p class="header-description">Take a gentle breath, scroll slowly, and enjoy every little memory tucked inside this digital haven.</p>
+      <div class="down-scroll-indicator" aria-hidden="true">
+        <span>Scroll to Explore</span>
+        <div class="scroll-arrow">↓</div>
+      </div>
+    </header>
+
+    <!-- Section 2: 3D Interactive Gift Box -->
+    <section class="experience-section" id="gift-section" aria-labelledby="gift-section-title">
+      <div class="section-badge">Part I</div>
+      <h3 id="gift-section-title" class="section-title">An Unopened Gift</h3>
+      <p class="section-subtitle">Click the golden ribbon to reveal what is hidden inside.</p>
+
+      <div class="gift-stage">
+        <div class="gift-box-3d" id="gift-box" role="button" tabindex="0" aria-label="Interactive 3D Gift Box" aria-expanded="false">
+          <div class="gift-cube">
+            <div class="cube-face face-front"><div class="ribbon-vertical"></div></div>
+            <div class="cube-face face-back"><div class="ribbon-vertical"></div></div>
+            <div class="cube-face face-left"><div class="ribbon-vertical"></div></div>
+            <div class="cube-face face-right"><div class="ribbon-vertical"></div></div>
+            <div class="cube-face face-bottom"></div>
+            <div class="gift-inside-card" id="gift-inside-card">
+              <span class="card-sparkle">✨</span>
+              <p class="gift-card-recipient" id="gift-card-recipient-text">Archita,</p>
+              <div class="gift-card-text" id="gift-message-text"></div>
+              <span class="card-signature">Forever Yours, Akshat ❤️</span>
+            </div>
+          </div>
+          <div class="gift-lid" id="gift-lid">
+            <div class="lid-face lid-top">
+              <div class="ribbon-cross-h"></div>
+              <div class="ribbon-cross-v"></div>
+              <div class="bow-wrap">
+                <div class="bow-loop bow-left"></div>
+                <div class="bow-loop bow-right"></div>
+                <div class="bow-center"></div>
+              </div>
+            </div>
+            <div class="lid-face lid-front"></div>
+            <div class="lid-face lid-back"></div>
+            <div class="lid-face lid-left"></div>
+            <div class="lid-face lid-right"></div>
+          </div>
+        </div>
+      </div>
+      <p class="interactive-hint" id="gift-status-hint">Tap the box to open ✨</p>
+    </section>
+
+    <!-- Section 3: Animated Love Tree & Petal Garden -->
+    <section class="experience-section" id="tree-section" aria-labelledby="tree-section-title">
+      <div class="section-badge">Part II</div>
+      <h3 id="tree-section-title" class="section-title">The Tree of Everlasting Love</h3>
+      <p class="section-subtitle">Rooted in respect, growing through patience, and blooming in every season.</p>
+      
+      <div class="tree-display-container glass-panel">
+        <div class="tree-canvas-overlay-content">
+          <p class="tree-quote">"If I had a flower for every time I thought of you, Archita... I could walk through my garden forever."</p>
+          <button id="btn-burst-love" class="btn-secondary" aria-label="Send Love Blossoms">
+            Send More Love Blossoms 🌸
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Photographic Memory Gallery -->
+    <section class="experience-section" id="gallery-section" aria-labelledby="gallery-section-title">
+      <div class="section-badge">Part III</div>
+      <h3 id="gallery-section-title" class="section-title">Frozen Moments in Time</h3>
+      <p class="section-subtitle">Photographs capture passing moments, but the warmth within them remains permanent.</p>
+
+      <div class="photo-gallery-grid" id="photo-gallery-container" role="region" aria-label="Image Photo Gallery"></div>
+    </section>
+
+    <!-- Section 5: Interactive 3x3 Photo Puzzle -->
+    <section class="experience-section" id="puzzle-section" aria-labelledby="puzzle-section-title">
+      <div class="section-badge">Part IV</div>
+      <h3 id="puzzle-section-title" class="section-title">Piece by Piece: The Memory Puzzle</h3>
+      <p class="section-subtitle">Drag and drop or tap pairs of tiles to reconstitute our treasured photograph.</p>
+
+      <div class="puzzle-layout-wrapper">
+        <div class="puzzle-container glass-panel">
+          <div class="puzzle-board" id="puzzle-board" role="grid" aria-label="3 by 3 Photo Tile Puzzle"></div>
+          <div class="puzzle-actions">
+            <button id="btn-shuffle-puzzle" class="btn-secondary">Scramble Tiles 🔀</button>
+            <button id="btn-solve-puzzle" class="btn-text">Assist Solution 🧩</button>
+          </div>
+        </div>
+        
+        <div class="puzzle-preview-card glass-panel">
+          <h4>Target Memory</h4>
+          <div class="puzzle-preview-frame">
+            <img id="puzzle-preview-image" src="" alt="Target solved puzzle reference preview" loading="lazy">
+          </div>
+          <p id="puzzle-status" class="puzzle-status-text">Arrange the 9 tiles to complete the portrait.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Sealed Origami Envelope & Love Letter -->
+    <section class="experience-section" id="envelope-section" aria-labelledby="envelope-section-title">
+      <div class="section-badge">Part V</div>
+      <h3 id="envelope-section-title" class="section-title">Words from the Depths of My Heart</h3>
+      <p class="section-subtitle">Break the crimson wax seal to unfold the handwritten letter inside.</p>
+
+      <div class="envelope-stage">
+        <div class="envelope-wrapper" id="envelope-wrapper">
+          <div class="envelope-pocket"></div>
+          <div class="letter-parchment" id="letter-parchment" role="article" aria-label="Personal Love Letter Parchment">
+            <div class="parchment-texture"></div>
+            <div class="letter-content-inner">
+              <span class="letter-date" id="letter-date-display">February 1, 2026 & Always</span>
+              <h4 class="letter-salutation" id="letter-recipient-name">Dearest Archita,</h4>
+              <div class="letter-body-text" id="letter-body-container"></div>
+              <p class="letter-signoff">Forever yours,<br><span class="signature-script">Akshat</span></p>
+            </div>
+          </div>
+          <div class="envelope-front-flaps"></div>
+          <div class="envelope-top-flap" id="envelope-top-flap">
+            <div class="wax-seal" id="wax-seal" role="button" tabindex="0" aria-label="Break Wax Seal to Open Letter" aria-expanded="false">
+              <span>❤️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="interactive-hint" id="envelope-hint">Click the heart wax seal to open 💌</p>
+    </section>
+
+    <!-- Section 7: Voice Message Audio Player -->
+    <section class="experience-section" id="voice-section" aria-labelledby="voice-section-title">
+      <div class="section-badge">Part VI</div>
+      <h3 id="voice-section-title" class="section-title">My Voice, Whispered to You</h3>
+      <p class="section-subtitle">When written words fall short, listen to the heartbeat behind my voice.</p>
+
+      <div class="audio-player-card glass-panel">
+        <audio id="romantic-audio-player" preload="metadata">
+          <source id="audio-source" src="" type="audio/webm">
+          Your browser does not support standard audio playback.
+        </audio>
+
+        <div class="audio-controls-top">
+          <button id="btn-audio-play" class="btn-play-pause" aria-label="Play Voice Recording">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon hidden">⏸</span>
+          </button>
+          <div class="audio-meta">
+            <span class="audio-track-title">A Special Voice Note For You</span>
+            <span class="audio-track-artist">From Akshat, With Love</span>
+          </div>
+        </div>
+
+        <div class="waveform-container" id="waveform-visualizer" aria-hidden="true">
+          <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+          <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+          <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+          <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+          <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+          <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+          <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+        </div>
+
+        <div class="audio-scrub-row">
+          <span id="audio-time-current" class="time-label">0:00</span>
+          <input type="range" id="audio-seek-slider" class="seek-slider" min="0" max="100" value="0" aria-label="Audio scrubber slider">
+          <span id="audio-time-total" class="time-label">0:00</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Sacred Promises & Grand Finale Surprise -->
+    <section class="experience-section" id="promises-section" aria-labelledby="promises-section-title">
+      <div class="section-badge">Part VII</div>
+      <h3 id="promises-section-title" class="section-title">Promises Written in Gold</h3>
+      <p class="section-subtitle">Check each heartfelt promise to seal our shared horizon.</p>
+
+      <div class="promises-container glass-panel">
+        <form id="promises-form" onsubmit="return false;">
+          <ul class="promises-list" id="promises-list"></ul>
+        </form>
+        <div class="promise-progress-wrapper">
+          <div class="promise-progress-bar" id="promise-progress-fill" style="width: 0%;"></div>
+        </div>
+        <p class="promise-count-label" id="promise-status-label">0 of 5 Promises Sealed</p>
+      </div>
+    </section>
+
+    <!-- Grand Finale Modal -->
+    <div id="grand-surprise-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-card glass-panel">
+        <div class="modal-crown">👑💖👑</div>
+        <h3 id="modal-title" class="modal-heading">You Have My Whole Heart, Archita</h3>
+        <p class="modal-text">Every single promise made here is an oath I intend to nurture every day. Thank you for being you—my haven, my compass, and my greatest blessing in this world.</p>
+        <div class="modal-actions">
+          <button id="btn-celebrate-more" class="btn-primary">Shower Endless Love 🎆</button>
+          <button id="btn-close-modal" class="btn-secondary">Keep Cherishing</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Modal for Photo Gallery -->
+    <div id="gallery-lightbox" class="lightbox-backdrop hidden" role="dialog" aria-modal="true" aria-label="Enlarged Photograph View">
+      <button id="btn-close-lightbox" class="btn-close" aria-label="Close photo view">&times;</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Enlarged photo detail">
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <!-- Application Footer -->
+    <footer class="app-footer">
+      <p>Crafted with endless devotion for Archita ❤️</p>
+      <small>Akshat & Archita — Forever & Always</small>
+    </footer>
+
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
